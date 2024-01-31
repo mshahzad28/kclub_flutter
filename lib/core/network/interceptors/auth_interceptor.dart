@@ -3,9 +3,6 @@ import '../network_keys.dart';
 
 class AuthInterceptor extends Interceptor {
   AuthInterceptor();
-
-  // final _appPreferences = Injector.resolve<AppPreferences>();
-
   @override
   Future<void> onRequest(
     RequestOptions options,

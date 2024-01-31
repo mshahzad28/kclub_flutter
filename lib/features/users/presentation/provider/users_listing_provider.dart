@@ -25,6 +25,7 @@ class UserListingNotifier extends StateNotifier<UserListingState> {
   final UserRepository userRepository;
   final Ref ref;
   void getUserList({String? name, AgeGroup? ageGroup}) async {
+    print("Inside get user list");
     state = const UserListingState.loading();
     final _ageGroup = ageGroup ?? ageGroupValueNotifier.value;
     final int minAge = _ageGroup == AgeGroup.uder35 ? 0 : 35;
@@ -38,6 +39,9 @@ class UserListingNotifier extends StateNotifier<UserListingState> {
         page: currentPage,
         name: name,
       );
+      print("---------------------");
+      print(response.toJson());
+      print("---------------------");
       if (response.users != null && response.users!.isNotEmpty) {
         final users = ref.read(usersStateProvider(_ageGroup));
         name != null
@@ -59,8 +63,11 @@ class UserListingNotifier extends StateNotifier<UserListingState> {
           ref.read(endOfListStateusProvider(_ageGroup).notifier).state = true;
         }
       }
-      state = UserListingState.userListingSuccess(response);
+      if (mounted) {
+        state = UserListingState.userListingSuccess(response);
+      }
     } on Exception catch (e) {
+      print("Inside Catch block. ERROR: ${e.toString()}");
       state = UserListingState.userListingError(e.toString());
     }
   }
