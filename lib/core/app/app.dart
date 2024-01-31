@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../resources/resources.dart';
 import 'app_router.dart';
@@ -15,20 +14,8 @@ class KClubApp extends StatefulWidget {
 }
 
 class _KClubAppState extends State<KClubApp> {
-  Future<void> setSystemPreferences() async {
-    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: AppColors.appBarRedColor,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: AppColors.cardBackgroundColor,
-      systemNavigationBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.dark,
-    ));
-  }
-
   @override
   Widget build(BuildContext context) {
-    setSystemPreferences();
     return MaterialApp.router(
       title: Strings.appName,
       debugShowCheckedModeBanner: false,

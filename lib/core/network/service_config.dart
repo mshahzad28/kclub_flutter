@@ -15,7 +15,6 @@ class ServiceConfig {
     final interceptors = <Interceptor>{}..addAll(
         {
           AuthInterceptor(),
-          // NetworkConnectionInterceptor(),
           ErrorHandlerInterceptor(),
           if (kDebugMode)
             PrettyDioLogger(requestHeader: true, requestBody: true)

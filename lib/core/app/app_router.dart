@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kclub_flutter/features/splash/splash_screen.dart';
+import 'package:kclub_flutter/features/users/presentation/screens/users_listing_scree.dart';
 
 import '../resources/resources.dart';
 
@@ -14,7 +14,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: PagePath.splash,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const UsersListingScreen(),
       ),
     ],
   );

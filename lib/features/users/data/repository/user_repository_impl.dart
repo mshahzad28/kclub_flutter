@@ -9,6 +9,6 @@ class UserRepositoryImpl extends UserRepository {
   Future<UsersResponse> getUsers(
       {String? name, int? minAge, int? maxAge, int? page}) async {
     return await apiClient.getUsers(
-        name: name, minAge: maxAge, maxAge: maxAge, page: page);
+        name: name, minAge: minAge, maxAge: maxAge, page: page);
   }
 }
